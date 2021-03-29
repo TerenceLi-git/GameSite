@@ -14,7 +14,7 @@ const startAll = async () =>  {
 
     const db = mongoose.connection;
 
-    app.listen(config.PORT, () =>{
+    app.listen(3000, () =>{
       console.log(`Server Loaded Properly`);
     });
   } catch (e) {

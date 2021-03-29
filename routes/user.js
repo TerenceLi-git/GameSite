@@ -10,19 +10,19 @@ module.exports = app => {
 
     app.get('/', async(req, res) => {
         try{
-            res.sendFile(path.join(__dirname + '/../HTML_FILES/index.html'));
+            res.sendFile(path.join(__dirname + '/../index.html'));
         }
         catch(err){
             console.log(err);
         }
     })
 
-    app.get('/chess', async(req, res) => {
-        try{
-            res.sendFile(path.join(__dirname + '/../HTML_FILES/chess.html'));
-        }
-        catch(err){
-            console.log(err);
-        }
-    })
+    // app.get('/chess', async(req, res) => {
+    //     try{
+    //         res.sendFile(path.join(__dirname + '/../HTML_FILES/chess.html'));
+    //     }
+    //     catch(err){
+    //         console.log(err);
+    //     }
+    // })
 }
