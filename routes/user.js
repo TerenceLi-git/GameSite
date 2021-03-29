@@ -17,12 +17,4 @@ module.exports = app => {
         }
     })
 
-    // app.get('/chess', async(req, res) => {
-    //     try{
-    //         res.sendFile(path.join(__dirname + '/../HTML_FILES/chess.html'));
-    //     }
-    //     catch(err){
-    //         console.log(err);
-    //     }
-    // })
 }
