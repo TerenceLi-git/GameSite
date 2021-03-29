@@ -1,0 +1,101 @@
+<!--Author:@tli46@buffalo.edu-->
+<html>
+<head>
+    <title>Chess</title>
+</head>
+<style>
+
+</style>
+<link rel = "stylesheet" href = "../CSS_FILES/chess.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="settings.js"></script>
+<script>
+</script>
+    <body onload="newGame();"">
+        <h1 id = "board">
+            <table>
+                <tr>
+                    <td><div class="Square light" onclick="playGame(00);"><img src="" id="00"></div></td>
+                    <td><div class="Square dark" onclick="playGame(01);"><img src="" id="01"></div></td>
+                    <td><div class="Square light" onclick="playGame(02);"><img src="" id="02"></div></td>
+                    <td><div class="Square dark" onclick="playGame(03);"><img src="" id="03"></div></td>
+                    <td><div class="Square light" onclick="playGame(04);"><img src="" id="04"></div></td>
+                    <td><div class="Square dark" onclick="playGame(05);"><img src="" id="05"></div></td>
+                    <td><div class="Square light" onclick="playGame(06);"><img src="" id="06"></div></td>
+                    <td><div class="Square dark" onclick="playGame(07);"><img src="" id="07"></div></td>
+                </tr>
+                <tr>
+                    <td><div class="Square dark" onclick="playGame(10);"><img src="" id="10"></div></td>
+                    <td><div class="Square light" onclick="playGame(11);"><img src="" id="11"></div></td>
+                    <td><div class="Square dark" onclick="playGame(12);"><img src="" id="12"></div></td>
+                    <td><div class="Square light" onclick="playGame(13);"><img src="" id="13"></div></td>
+                    <td><div class="Square dark" onclick="playGame(14);"><img src="" id="14"></div></td>
+                    <td><div class="Square light" onclick="playGame(15);"><img src="" id="15"></div></td>
+                    <td><div class="Square dark" onclick="playGame(16);"><img src="" id="16"></div></td>
+                    <td><div class="Square light" onclick="playGame(17);"><img src="" id="17"></div></td>
+                </tr>
+                <tr>
+                    <td><div class="Square light" onclick="playGame(20);"><img src="" id="20"></div></td>
+                    <td><div class="Square dark" onclick="playGame(21);"><img src="" id="21"></div></td>
+                    <td><div class="Square light" onclick="playGame(22);"><img src="" id="22"></div></td>
+                    <td><div class="Square dark" onclick="playGame(23);"><img src="" id="23"></div></td>
+                    <td><div class="Square light" onclick="playGame(24);"><img src="" id="24"></div></td>
+                    <td><div class="Square dark" onclick="playGame(25);"><img src="" id="25"></div></td>
+                    <td><div class="Square light" onclick="playGame(26);"><img src="" id="26"></div></td>
+                    <td><div class="Square dark" onclick="playGame(27);"><img src="" id="27"></div></td>
+                </tr>
+                <tr>
+                    <td><div class="Square dark" onclick="playGame(30);"><img src="" id="30"></div></td>
+                    <td><div class="Square light" onclick="playGame(31);"><img src="" id="31"></div></td>
+                    <td><div class="Square dark" onclick="playGame(32);"><img src="" id="32"></div></td>
+                    <td><div class="Square light" onclick="playGame(33);"><img src="" id="33"></div></td>
+                    <td><div class="Square dark" onclick="playGame(34);"><img src="" id="34"></div></td>
+                    <td><div class="Square light" onclick="playGame(35);"><img src="" id="35"></div></td>
+                    <td><div class="Square dark" onclick="playGame(36);"><img src="" id="36"></div></td>
+                    <td><div class="Square light" onclick="playGame(37);"><img src="" id="37"></div></td>
+                </tr>                
+                <tr>
+                    <td><div class="Square light" onclick="playGame(40);"><img src="" id="40"></div></td>
+                    <td><div class="Square dark" onclick="playGame(41);"><img src="" id="41"></div></td>
+                    <td><div class="Square light" onclick="playGame(42);"><img src="" id="42"></div></td>
+                    <td><div class="Square dark" onclick="playGame(43);"><img src="" id="43"></div></td>
+                    <td><div class="Square light" onclick="playGame(44);"><img src="" id="44"></div></td>
+                    <td><div class="Square dark" onclick="playGame(45);"><img src="" id="45"></div></td>
+                    <td><div class="Square light" onclick="playGame(46);"><img src="" id="46"></div></td>
+                    <td><div class="Square dark" onclick="playGame(47);"><img src="" id="47"></div></td>
+                </tr>
+                <tr>
+                    <td><div class="Square dark" onclick="playGame(50);"><img src="" id="50"></div></td>
+                    <td><div class="Square light" onclick="playGame(51);"><img src="" id="51"></div></td>
+                    <td><div class="Square dark" onclick="playGame(52);"><img src="" id="52"></div></td>
+                    <td><div class="Square light" onclick="playGame(53);"><img src="" id="53"></div></td>
+                    <td><div class="Square dark" onclick="playGame(54);"><img src="" id="54"></div></td>
+                    <td><div class="Square light" onclick="playGame(55);"><img src="" id="55"></div></td>
+                    <td><div class="Square dark" onclick="playGame(56);"><img src="" id="56"></div></td>
+                    <td><div class="Square light" onclick="playGame(57);"><img src="" id="57"></div></td>
+                </tr>   
+                <tr>
+                    <td><div class="Square light" onclick="playGame(60);"><img src="" id="60"></div></td>
+                    <td><div class="Square dark" onclick="playGame(61);"><img src="" id="61"></div></td>
+                    <td><div class="Square light" onclick="playGame(62);"><img src="" id="62"></div></td>
+                    <td><div class="Square dark" onclick="playGame(63);"><img src="" id="63"></div></td>
+                    <td><div class="Square light" onclick="playGame(64);"><img src="" id="64"></div></td>
+                    <td><div class="Square dark" onclick="playGame(65);"><img src="" id="65"></div></td>
+                    <td><div class="Square light" onclick="playGame(66);"><img src="" id="66"></div></td>
+                    <td><div class="Square dark" onclick="playGame(67);"><img src="" id="67"></div></td>
+                </tr>             
+                <tr>
+                    <td><div class="Square dark" onclick="playGame(70);"><img src="" id="70"></div></td>
+                    <td><div class="Square light" onclick="playGame(71);"><img src="" id="71"></div></td>
+                    <td><div class="Square dark" onclick="playGame(72);"><img src="" id="72"></div></td>
+                    <td><div class="Square light" onclick="playGame(73);"><img src="" id="73"></div></td>
+                    <td><div class="Square dark" onclick="playGame(74);"><img src="" id="74"></div></td>
+                    <td><div class="Square light" onclick="playGame(75);"><img src="" id="75"></div></td>
+                    <td><div class="Square dark" onclick="playGame(76);"><img src="" id="76"></div></td>
+                    <td><div class="Square light" onclick="playGame(77);"><img src="" id="77"></div></td>
+                </tr>
+            </table>
+    
+        </h1>
+</html>
+
