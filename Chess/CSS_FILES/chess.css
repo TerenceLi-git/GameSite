@@ -2,6 +2,35 @@ body {
 	background: rgba(105, 105, 105, 0.5);
 }
 
+#wholeBody {
+	position: relative;
+}
+
+#turnHolder {
+	position: relative;
+	left: 650px;
+	top: -500px;
+	width: 160px;
+	height: 35px;
+	border-style:solid;
+    border-width:3px;
+	background-color:lightsteelblue;
+	border-color: black;
+	color:rgb(10, 0, 0);
+	font-size: 180%;
+	text-align: center;
+}
+
+.sideBar {
+	position: relative;
+	left: 650px;
+	top: -550px;
+	width: 166px;
+	height: 35px;
+	border-style:solid;
+    border-width:3px;
+}
+
 #Board {
 	position: relative;
 	left: 60px;
@@ -45,4 +74,8 @@ table, tr, td {
 
 .highlight {
 	background-color:#91a341;
+}
+
+.highlightPiece {
+	background-color: rgb(223, 113, 135);
 }

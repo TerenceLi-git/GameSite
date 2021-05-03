@@ -11,7 +11,7 @@
 <script src="settings.js"></script>
 <script>
 </script>
-    <body onload="newGame();"">
+    <body onload="newGame();""><div id="wholeBody"></div>
         <h1 id = "board">
             <table>
                 <tr>
@@ -97,5 +97,11 @@
             </table>
     
         </h1>
+        <div id="turnHolder">Turn: White</div> 
+        <h2>
+            <br/><br/>
+            <button id="NewGameButton" class="sideBar" onclick="newGame();"> New Game </button> <br/>
+            <button id="HomeButton" class="sideBar" onclick="alert('Game is ending'); window.location.replace('/../../')"> Home </button>
+        </h2> </div>
 </html>
 
