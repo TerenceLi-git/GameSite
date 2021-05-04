@@ -11,11 +11,30 @@
         sessionStorage.clear();
         location.href = "http://localhost:3000/";
     }
+
+    async function initalize(){
+        var idVal = sessionStorage.getItem("POSSID");
+        data = {
+            id : idVal
+        }
+        let response = await fetch('../getInfo', {
+                method: 'POST', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+        })
+        let text = await response.text();
+        let jsonFormat = JSON.parse(text);
+
+        document.getElementById("Name").innerHTML = "Hello, " + jsonFormat.firstName + "&nbsp" + jsonFormat.lastName;
+    }
 </script>
-<body>
+<body onload="initalize();">
     TEMPORARY HOMEPAGE WORK IN PROGRESS!
     <button onclick="logout();"> Log out </button>
     
+    <div id="Name"> </div>
     <input type="button" onclick="location.href='/chess/HTML_FILES/chess.html';" value="Chess" />
 </body>
 </html>

@@ -36,7 +36,7 @@
         })
         let text = await response.text(); // read response body as text
         if(text != "Not Found"){
-            location.href = "/../../homepage/homepage.html";
+            location.href = "/../../login/login.html";
         }else{
             document.getElementById("Error").innerHTML = "Email is already in use.";
             return false;

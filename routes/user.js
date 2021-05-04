@@ -21,6 +21,25 @@ module.exports = app => {
         }
     })
 
+    app.post('/getInfo', async(req, res) => {
+        try{
+            const id = req.body.id;
+    
+            Users.findOne({_id: id}, async function(err, user){
+                if(user){
+                    res.send(user);
+                }
+                else{
+                    res.sendStatus(404);
+                }
+            })
+        }
+        catch (err){
+            console.log("Pain incoming.");
+            res.sendStatus(400);
+        }
+    })
+
     app.post('/signup', async(req, res) => {
         try{
             const email = req.body.email;
