@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Homepage</title>
+</head>
+<style>
+
+</style>
+<script>
+    function logout()
+    {
+        sessionStorage.clear();
+        location.href = "http://localhost:3000/";
+    }
+</script>
+<body>
+    TEMPORARY HOMEPAGE WORK IN PROGRESS!
+    <button onclick="logout();"> Log out </button>
+    
+    <input type="button" onclick="location.href='/chess/HTML_FILES/chess.html';" value="Chess" />
+</body>
+</html>

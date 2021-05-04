@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>Log in</title>
+</head>
+<style>
+
+</style>
+<script>
+	async function onsubmitFunc(e) {
+        e.preventDefault();
+        var form = document.querySelector("#login");
+          data = {
+            email : form.querySelector('input[name="email"]').value,
+            password : form.querySelector('input[name="password"]').value,
+          }
+
+          let response = await fetch('../login', {
+                  method: 'POST', // or 'PUT'
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(data),
+          })
+          let text = await response.text(); // read response body as text
+          let jsonFormat = JSON.parse(text);
+          if (typeof(Storage) !== "undefined") {
+            sessionStorage.setItem("POSSID", jsonFormat._id);
+          }
+          location.href = "/../../homepage/homepage.html";
+      }
+
+</script>
+<body>
+    <form id="login" onsubmit="onsubmitFunc(event)">
+        <input type="text" name="email" placeholder="email"><br/>
+        <input type="text" name="password" placeholder="password"><br/>
+        <input type="submit">
+    </form>
+    <a href="/../../register/register.html"> Create an account instead </a>
+</body>
+</html>

@@ -1,6 +1,6 @@
 const { ObjectId } = require('mongoose');
 const mongoose = require('mongoose');
- const timestamp = require('mongoose-timestamp');
+const timestamp = require('mongoose-timestamp');
 
 
  const UsersSchema = new mongoose.Schema({
@@ -15,6 +15,25 @@ const mongoose = require('mongoose');
      required: true,
      default :"",
    },
+
+   birthdate: {
+     type: String,
+     required: true,
+     default: "",
+   },
+
+   firstName: {
+     type: String,
+     required: true,
+     default: "",
+   }, 
+
+    lastName: {
+    type: String,
+    required: true,
+    default: "",
+  }, 
+
  });
  UsersSchema.plugin(timestamp);
 
