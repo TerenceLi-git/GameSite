@@ -14,6 +14,11 @@
             document.getElementById("Error").innerHTML = "Password must be a length > 8.";
             return false;
         }
+        emailCheck = form.querySelector('input[name="email"]').value;
+        if(emailCheck.includes("@") == false){
+            document.getElementById("Error").innerHTML = "Must be an actual email address.";
+            return false;
+        }
         data = {
             email : form.querySelector('input[name="email"]').value,
             password : form.querySelector('input[name="password"]').value,

@@ -14,6 +14,7 @@ app.use('/chess', express.static('Chess'));
 app.use('/register', express.static('Register'));
 app.use('/login', express.static('Login'));
 app.use('/homepage', express.static('Homepage'));
+app.use('/rng', express.static('RNG'));
 
 
 module.exports = app;

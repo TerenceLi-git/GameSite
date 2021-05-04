@@ -1,0 +1,59 @@
+<html>
+<head>
+    <title>Random Two Team Generator</title>
+</head>
+<style>
+
+</style>
+<script>
+	async function onsubmitFunc(e) {
+        e.preventDefault();
+        var form = document.querySelector("#RNG");
+        names = document.forms['RNG'].elements['input'].value;
+        teams = document.forms['RNG'].elements['teams'].value;
+        console.log(names);
+        console.log(teams);
+
+        data = {
+            names : document.forms['RNG'].elements['input'].value,
+            teams : document.forms['RNG'].elements['teams'].value
+        }
+
+        console.log(JSON.stringify(data));
+
+        let response = await fetch('../rng', {
+                method: 'POST', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+        })
+        let text = await response.text(); // read response body as text
+        let jsonFormat = JSON.parse(text);
+        document.getElementById("TeamOne").innerHTML = "Team 1:</br>";
+        document.getElementById("TeamTwo").innerHTML = "Team 2:</br>";
+        
+        for(var i = 0; i < jsonFormat.teamOne.length; i++){
+            document.getElementById("TeamOne").innerHTML = document.getElementById("TeamOne").innerHTML + jsonFormat.teamOne[i] + "</br>";
+        }
+        for(var i = 0; i < jsonFormat.teamTwo.length; i++){
+            document.getElementById("TeamTwo").innerHTML = document.getElementById("TeamTwo").innerHTML + jsonFormat.teamTwo[i] + "</br>";
+        }
+      }
+
+</script>
+
+<body>
+    <form id="RNG" name="RNG" onsubmit="onsubmitFunc(event)">
+        <br>
+        <textarea rows = "10" cols = "60" name = "input" placeholder="Enter details here."></textarea><br>
+        <select name="teams" id="teams">
+            <option value="2">2</option>
+        </select>
+        <input type="submit">
+    </form>
+    <div id="TeamOne">Team 1:</br></div></br>
+    <div id="TeamTwo">Team 2:</div></br>
+    <a href="/../../"> Go back </a>
+</body>
+</html>
