@@ -4,8 +4,6 @@ const e = require('express');
 const { reset } = require('nodemon');
 var path = require('path');
 const Users = require('../models/Users');
-const Chess = require('../models/Chess');
-
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
@@ -26,6 +24,7 @@ module.exports = app => {
         try{
             const id = req.body.id;
     
+            console.log(id);
             Users.findOne({_id: id}, async function(err, user){
                 if(user){
                     res.send(user);
@@ -78,6 +77,7 @@ module.exports = app => {
             const email = req.body.email;
             const password = req.body.password;
 
+
             Users.findOne({email: email}, async function(err, user){
                 if (!user) {
                     res.sendStatus(404)
@@ -88,6 +88,8 @@ module.exports = app => {
                         console.log("password error");
                     } else {
                         console.log("redirecting");
+                        console.log(user._id);
+                        res.cookie('POSSID', user._id, { expires: new Date(Date.now() + 900000), httpOnly: true });
                         res.send(user);
                     }
                 }

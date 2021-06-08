@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 var path = require('path');
 var bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser');
+
+app.use(cookieParser());
 
 app.use(bodyParser.urlencoded({
     extended: true

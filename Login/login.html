@@ -23,6 +23,7 @@
           })
           let text = await response.text(); // read response body as text
           let jsonFormat = JSON.parse(text);
+          
           if (typeof(Storage) !== "undefined") {
             sessionStorage.setItem("POSSID", jsonFormat._id);
           }
@@ -34,6 +35,7 @@
     <form id="login" onsubmit="onsubmitFunc(event)">
         <input type="text" name="email" placeholder="email"><br/>
         <input type="text" name="password" placeholder="password"><br/>
+        <input type="checkbox" id="staySignedIn" name="signedIn" value="true"><label for="staySignedIn">Stay signed in?</label><br>
         <input type="submit">
     </form>
     <a href="/../../register/register.html"> Create an account instead </a>

@@ -12,8 +12,14 @@
         location.href = '/../../';
     }
 
+    function getCookie(name) {
+        return (document.cookie.match('(^|;) *'+name+'=([^;]*)')||[])[2];
+    }
+
     async function initalize(){
         var idVal = sessionStorage.getItem("POSSID");
+        var x = getCookie("POSSID");
+        console.log(x);
         data = {
             id : idVal
         }
@@ -36,5 +42,6 @@
     
     <div id="Name"> </div>
     <input type="button" onclick="location.href='/chess/HTML_FILES/chess.html';" value="Chess" />
+    <input type="button" onclick="location.href='/rng/roller.html';" value="Roller" />
 </body>
 </html>
