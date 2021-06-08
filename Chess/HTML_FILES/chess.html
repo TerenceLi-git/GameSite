@@ -10,10 +10,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="settings.js"></script>
 <script>
+    function logout()
+    {
+        sessionStorage.clear();
+        location.href = '/../../';
+    }
 </script>
     <body onload="newGame();""><div id="wholeBody"></div>
         <h1 id = "board">
-            <table>
+            <table> 
                 <tr>
                     <td><div class="Square light" onclick="playGame(00);"><img src="" id="00"></div></td>
                     <td><div class="Square dark" onclick="playGame(01);"><img src="" id="01"></div></td>
@@ -97,11 +102,18 @@
             </table>
     
         </h1>
+        <div id="loggedInHolder"></div> <br/>
         <div id="turnHolder">Turn: White</div> 
         <h2>
             <br/><br/>
             <button id="NewGameButton" class="sideBar" onclick="newGame();"> New Game </button> <br/>
-            <button id="HomeButton" class="sideBar" onclick="alert('Game is ending'); window.location.replace('/../../')"> Home </button>
+            <button id="SaveGame" class="sideBar" onclick="saveGame();"> Click here to save your game </button> <br/>
+            <button id="SaveGame" class="sideBar" onclick="loadGame();"> Click here to load your saved game </button> <br/>
+            <button id="playVsOther" class="bottomBar" onclick="alert('Work in Progress.');"> Play in a room against another player </button> <br/>
+            <br/> <br/> <br/>
+            
+
+            <button id="LoginButton" class="sideBar" onclick="location.href='/login/login.html';"> Log in </button> <br/>
         </h2> </div>
 </html>
 

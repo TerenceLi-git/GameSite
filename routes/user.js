@@ -4,6 +4,7 @@ const e = require('express');
 const { reset } = require('nodemon');
 var path = require('path');
 const Users = require('../models/Users');
+const Chess = require('../models/Chess');
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
@@ -61,6 +62,7 @@ module.exports = app => {
                     res.send(retUser);
                 }
                 else{
+
                     res.sendStatus(404);
                 }
             })

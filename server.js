@@ -9,6 +9,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 require('./routes/user')(app);
+require('./routes/chessRoutes')(app);
 
 app.use('/chess', express.static('Chess'));
 app.use('/register', express.static('Register'));

@@ -21,10 +21,26 @@ body {
 	text-align: center;
 }
 
+#loggedInHolder{
+	position: relative;
+	left: 650px;
+	top: -500px;
+	color:red;
+}
+
 .sideBar {
 	position: relative;
 	left: 650px;
 	top: -550px;
+	width: 166px;
+	height: 40px;
+	border-style:solid;
+    border-width:3px;
+}
+
+.bottomBar {
+	position: relative;
+	top: -200px;
 	width: 166px;
 	height: 35px;
 	border-style:solid;

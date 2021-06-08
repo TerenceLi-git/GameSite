@@ -16,12 +16,96 @@ var turn = "White";
 
 //new game
 function newGame(){
-    alert("Starting a new chess game.")
+    checkUser();
+    alert("Starting a new chess game.");
     resetBoard();
     reload();
-    playGame(32);
     turn = "White";
     updateTurn();
+}
+
+async function checkUser(){
+    var idVal = sessionStorage.getItem("POSSID");
+    if(idVal == null)
+    {
+        document.getElementById("loggedInHolder").innerHTML = "You are not logged in, this game won't be saved.";
+        document.getElementById("LoginButton").innerHTML = "Log in";
+    }else{
+        document.getElementById("LoginButton").innerHTML = "Log out";
+        document.getElementById('LoginButton').setAttribute( "onClick", "logout();" );
+
+        data = {
+            id : idVal
+        }
+        let response = await fetch('/../../getInfo', {
+                method: 'POST', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+        })
+        let text = await response.text();
+        let jsonFormat = JSON.parse(text);
+
+        document.getElementById("loggedInHolder").innerHTML = "Hello, " + jsonFormat.firstName + "&nbsp" + jsonFormat.lastName;
+    }
+}
+
+async function saveGame(){
+    var idVal = sessionStorage.getItem("POSSID");
+    if(idVal == null)
+    {
+        alert("Please login to save your game.");
+    }else{
+        data = {
+            id : idVal,
+            chessBoard : board,
+            turn : turn 
+        }
+        let response = await fetch('/../../saveChess', {
+                method: 'POST', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+        })
+        let text = await response.text();
+        console.log(text);
+
+        alert("Game is saved.");
+    }
+}
+
+async function loadGame(){
+    var idVal = sessionStorage.getItem("POSSID");
+    if(idVal == null)
+    {
+        alert("Please login to load your saved game.");
+    }else{
+        data = {
+            id : idVal,
+        }
+        let response = await fetch('/../../getChess', {
+                method: 'POST', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+        })
+
+        let text = await response.text();
+        let jsonFormat = JSON.parse(text);
+
+        board = jsonFormat.chessBoard;
+        turn = jsonFormat.turn;
+
+        document.getElementById("turnHolder").innerHTML = "Turn: " + jsonFormat.turn;
+
+        console.log(board);
+        reload();
+
+        alert("Game has loaded.");
+    }
 }
 
 function resetBoard(){
